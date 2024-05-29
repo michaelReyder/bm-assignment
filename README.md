@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technology Used
 
-## Available Scripts
+- React / create-react-app
+- Typescript
+- Tailwind CSS
+- shadcn (individual components)
 
-In the project directory, you can run:
+Additionally, eslint and prettier have been added to this project for maintaining consitency with the formatting of the code, as well as following best practice rules.
 
-### `npm start`
+### Caveat
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to run the application locally and be able to successfully request data from openweathermap API, the requests are routed through a CORS proxy server. In order to allow requests to go through, once the application is running locally, [visit this link](https://cors-anywhere.herokuapp.com/corsdemo) and click on "Request temporary access to the demo server". A message will appear informing that access has been granted.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+The project has a very basic structure given the minimal set of features. The components folder contains all the visual code, and is separated into a ui folder (base shadcn components), and a custom MainView which contains the code for rendering layout and acts as the container for invoking the data fetching logic. Additionlly a component called ForecastTable is responsible for rendering the forecast weather data. Types contains definitions for data structures of cities and the normalized weather data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Data fetching and normalization functions are defined in api/weather.
 
-### `npm run build`
+## Running Application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Prior to running the application, please create a .env file in the root folder of the project, and populate it with the following: ###`REACT_APP_OPENWEATHER_APP_ID=[YOUR_API_KEY]`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+In order to run the application, please run `npm install`. Once the application has been installed, `npm start` will initialize and run the application on localhost:3000. While running npm install, there is a chance that you will encounter a warning regarding the node version you are running locally, as it pertains to a couple of the lint and prettier packages used for the development process. This warning will not impede or hinder the functionality of the application.
